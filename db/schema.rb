@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_05_07_194641) do
+ActiveRecord::Schema.define(version: 2022_05_09_195149) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -112,8 +112,14 @@ ActiveRecord::Schema.define(version: 2022_05_07_194641) do
     t.datetime "remember_created_at"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "first_name"
+    t.string "last_name"
+    t.string "phone"
+    t.string "image"
+    t.bigint "user_category_id"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+    t.index ["user_category_id"], name: "index_users_on_user_category_id"
   end
 
   add_foreign_key "adverts", "users"
@@ -125,4 +131,5 @@ ActiveRecord::Schema.define(version: 2022_05_07_194641) do
   add_foreign_key "products", "product_categories"
   add_foreign_key "products", "users"
   add_foreign_key "ratings", "products"
+  add_foreign_key "users", "user_categories"
 end
