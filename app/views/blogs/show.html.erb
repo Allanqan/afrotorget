@@ -64,8 +64,9 @@
             <p class="card-text text-muted h6"> Posted By:  <%= @blog.user.first_name %>  <%= @blog.user.last_name %> |
               Posted On: <%= @blog.created_at %> </p>
             <%#= link_to t('read_more'), @blog, method: :get %>
-            <%= link_to 'Edit', edit_blog_path(@blog) %>
-            <%= link_to 'Destroy', @blog, method: :delete, data: { confirm: 'Are you sure?' } %>
+            <a class="btn btn-primary" <%= link_to 'Edit', edit_blog_path(@blog) %> </a>
+            <a class="btn btn-danger" <%= link_to 'Delete', @blog, method: :delete, data: { confirm: 'Are you sure?' } %> </a>
+
           </div>
         </div>
     </div>
