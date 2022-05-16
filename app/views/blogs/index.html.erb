@@ -85,9 +85,9 @@
               Posted On: <%= blog.created_at %> </p>
             <img class="img-thumbnail" src="<%= blog.image %>" alt="<%= blog.title %>">
             <p class="card-text"><%= blog.body %></p>
-            <%= link_to t('read_more'), blog, method: :get %>
-            <%= link_to 'Edit', edit_blog_path(blog) %>
-            <%= link_to 'Destroy', blog, method: :delete, data: { confirm: 'Are you sure?' } %>
+            <a class="btn btn-success" <%= link_to t('read_more'), blog, method: :get %> </a>
+            <a class="btn btn-secondary" <%= link_to 'Edit', edit_blog_path(blog) %> </a>
+            <a class="btn btn-warning" <%= link_to 'Delete', blog, method: :delete, data: { confirm: 'Are you sure?' } %> </a>
           </div>
         </div>
       <% end %>
