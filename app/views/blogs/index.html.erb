@@ -1,34 +1,152 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Blogs</h1>
+<!--<h1>Blogs</h1>-->
 
-<table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Image</th>
-      <th>Video</th>
-      <th>Body</th>
-      <th>User</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+<head>
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet">
+  <meta name="google" content="notranslate"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+        crossorigin="anonymous"/>
+</head>
 
-  <tbody>
-    <% @blogs.each do |blog| %>
-      <tr>
-        <td><%= blog.title %></td>
-        <td><%= blog.image %></td>
-        <td><%= blog.video %></td>
-        <td><%= blog.body %></td>
-        <td><%= blog.user_id %></td>
-        <td><%= link_to 'Show', blog %></td>
-        <td><%= link_to 'Edit', edit_blog_path(blog) %></td>
-        <td><%= link_to 'Destroy', blog, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+
+
+<style>
+    body {
+        font-family: "Roboto", sans-serif;
+        font-size: 17px;
+        background-color: #fdfdfd;
+    }
+
+    .shadow {
+        box-shadow: 0 4px 2px -2px rgba(0, 0, 0, 0.1);
+    }
+
+    .btn-danger {
+        color: #fff;
+        background-color: #f00000;
+        border-color: #dc281e;
+    }
+
+    .masthead {
+        background: #3398E1;
+        height: auto;
+        padding-bottom: 15px;
+        box-shadow: 0 16px 48px #E3E7EB;
+        padding-top: 10px;
+    }
+</style>
+
+<!-- Content Goes here -->
+<!--<style>-->
+<!--    .card{-->
+<!--        box-shadow: 0 16px 48px #E3E7EB;-->
+<!--    }-->
+
+<!--</style>-->
+
+<!-- Sidebar Widgets Column -->
+<!--<div class="col-md-4 float-right ">-->
+<!--  <div class="card my-4">-->
+<!--<img class="card-img-top" src="..." alt="Card image cap">-->
+<!--    <h5 class="card-header">Tech</h5>-->
+<!--    <div class="card-body">-->
+<!--      <p class="card-text"> In this sidebar we put categories and trending blogs</p>-->
+<!--      <a href="https://maximo.maxtechug.com"-->
+<!--         class="btn btn-danger">Browse more!</a>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--</div>-->
+
+<style>
+    body {
+        font-family: "Roboto", sans-serif;
+        font-size: 18px;
+        background-color: #fdfdfd;
+    }
+
+    .head_text {
+        color: white;
+    }
+
+    .card {
+        box-shadow: 0 16px 48px #E3E7EB;
+    }
+</style>
+
+<header class="masthead">
+  <div class="overlay"></div>
+  <div class="container">
+    <div class="row">
+      <div class=" col-md-8 col-md-10 mx-auto">
+        <div class="site-heading">
+          <h3 class=" site-heading my-4 mt-3 text-white"> Welcome to AfroTorget News Central </h3>
+          <p class="text-light">Gossip, Stocks, Trendy stuff.! &nbsp
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<div class="container">
+  <div class="row">
+    <!-- Blog Entries Column -->
+    <div class="col-md-8 mt-3 left">
+      <% @blogs.each do |blog| %>
+        <div class="card mb-4">
+          <div class="card-body">
+            <h2 class="card-title"><%= blog.title %></h2>
+            <p class="card-text text-muted h6"> Posted By:  <%= blog.user.first_name %>  <%= blog.user.last_name %> |
+              Posted On <%= blog.created_at %> </p>
+            <img class="img-thumbnail" src="<%= blog.image %>" alt="<%= blog.title %>">
+            <p class="card-text"><%= blog.body %></p>
+            <%= link_to t('read_more'), blog, method: :get %>
+            <%= link_to 'Edit', edit_blog_path(blog) %>
+            <%= link_to 'Destroy', blog, method: :delete, data: { confirm: 'Are you sure?' } %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+    <!--    {% block sidebar %} {% include 'sidebar.html' %} {% endblock sidebar %}-->
+  </div>
+</div>
+
+<!-- Footer -->
+<footer class="py-3 bg-grey">
+  <p class="m-0 text-dark text-center ">AfroTorget News</p>
+</footer>
+
+
+
+<!--<table>-->
+<!--  <thead>-->
+<!--    <tr>-->
+<!--      <th>Title</th>-->
+<!--      <th>Image</th>-->
+<!--      <th>Video</th>-->
+<!--      <th>Body</th>-->
+<!--      <th>User</th>-->
+<!--      <th colspan="3"></th>-->
+<!--    </tr>-->
+<!--  </thead>-->
+
+<!--  <tbody>-->
+<%# @blogs.each do |blog| %>
+<!--      <tr>-->
+<!--        <td><%#= blog.title %></td>-->
+<!--        <td><%#= blog.image %></td>-->
+<!--        <td><%#= blog.video %></td>-->
+<!--        <td><%#= blog.body %></td>-->
+<!--        <td><%#= blog.user_id %></td>-->
+<!--        <td><%#= link_to 'Show', blog %></td>-->
+<!--        <td><%#= link_to 'Edit', edit_blog_path(blog) %></td>-->
+<!--        <td><%#= link_to 'Destroy', blog, method: :delete, data: { confirm: 'Are you sure?' } %></td>-->
+<!--      </tr>-->
+<%# end %>
+<!--  </tbody>-->
+<!--</table>-->
 
 <br>
 
