@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '2.7.4'
+ruby '~> 2.7.4'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails', branch: 'main'
 gem 'rails', '~> 6.1.5', '>= 6.1.5.1'
@@ -29,6 +29,8 @@ gem 'redis', '~> 4.0'
 gem 'bootsnap', '>= 1.4.4', require: false
 
 gem 'devise'
+
+gem 'wdm', '>= 0.1.0' if Gem.win_platform?
 
 gem 'autoprefixer-rails', '10.2.5'
 gem 'font-awesome-sass'
